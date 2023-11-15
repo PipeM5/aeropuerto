@@ -20,8 +20,17 @@ from album import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+     path('aeropuertos/',views.aeropuertoListView.as_view(),name="aeropuerto-list"),
+    #  path('vuelos/', views.lista_vuelos,name="lista_vuelos"),
+    #  path('pasajeros/', views.lista_pasajeros,name="lista_pasajeros"),
     path('selection/', views.SelectionListView.as_view(), name='selection-list'),
     path('selection/<int:pk>/detail/', views.SelectionDetailView.as_view(), name='selection-detail'),
     path('player/', views.PlayerListView.as_view(), name='player-list'),
     path('player/<int:pk>/detail/', views.PlayerDetailView.as_view(), name='player-detail'),
+    # Update
+    path('player/<int:pk>/update/',views.PlayerUpdate.as_view(),name='player-update'), 
+    #Create
+    path('player/create/', views.PlayerCreate.as_view(), name='player-create'),
+    #Delete
+    path('player/<int:pk>/delete/', views.PlayerDelete.as_view(), name='player-delete'),
 ]
